@@ -1,0 +1,90 @@
+[gd_scene load_steps=13 format=3 uid="uid://caacyktr1vow6"]
+
+[ext_resource type="Script" uid="uid://krhufquvcyjm" path="res://Scripts/player.gd" id="1_vgqql"]
+[ext_resource type="Texture2D" uid="uid://nl3yeu1u7hkg" path="res://Assets/Sprites/froggy/idle/froggy_idle.png" id="2_fkybt"]
+[ext_resource type="Resource" uid="uid://cqlcvgpg32j2v" path="res://resources/player_inventory.tres" id="2_x3wgy"]
+[ext_resource type="Texture2D" uid="uid://nwmny16o1muc" path="res://Assets/Sprites/froggy/walk/froggy_walk.png" id="3_6t5aa"]
+[ext_resource type="PackedScene" uid="uid://1kjjjesvyi38" path="res://Scenes/inventory_ui.tscn" id="4_vgqql"]
+[ext_resource type="Texture2D" uid="uid://rd1lljxq7a4l" path="res://Assets/Sprites/froggy/jump/froggy_jump.png" id="4_x3wgy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x3wgy"]
+atlas = ExtResource("2_fkybt")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3smsa"]
+atlas = ExtResource("2_fkybt")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vgqql"]
+atlas = ExtResource("3_6t5aa")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fkybt"]
+atlas = ExtResource("3_6t5aa")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_x3wgy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x3wgy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3smsa")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_x3wgy")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vgqql")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fkybt")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 4.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3smsa"]
+radius = 11.0
+height = 32.0
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_vgqql")
+inventory = ExtResource("2_x3wgy")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_x3wgy")
+animation = &"jump"
+frame_progress = 0.101372
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_3smsa")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(3, 3)
+limit_bottom = 679
+drag_horizontal_enabled = true
+drag_top_margin = 0.3
+drag_bottom_margin = 0.3
+editor_draw_limits = true
+editor_draw_drag_margin = true
+
+[node name="InventoryUI" parent="." instance=ExtResource("4_vgqql")]
+z_index = 20
+offset_left = -89.5
+offset_top = -60.0
+offset_right = 89.5
+offset_bottom = -26.0

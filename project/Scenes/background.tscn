@@ -1,0 +1,50 @@
+[gd_scene load_steps=5 format=3 uid="uid://mumacgqxqmuo"]
+
+[ext_resource type="Texture2D" uid="uid://h7twhqhh4f60" path="res://Assets/Sprites/background/background.png" id="1_272ld"]
+[ext_resource type="Texture2D" uid="uid://ddhdbfaaa8nu7" path="res://Assets/Sprites/background/mountains_back.png" id="2_risyr"]
+[ext_resource type="Texture2D" uid="uid://cbrvodpbnrlr" path="res://Assets/Sprites/background/mountains_front.png" id="3_ju84e"]
+[ext_resource type="Texture2D" uid="uid://divqfr04jh58w" path="res://Assets/Sprites/background/hills.png" id="4_64pqy"]
+
+[node name="Node" type="Node2D"]
+
+[node name="Sky" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.1, 0.1)
+repeat_size = Vector2(1152, 0)
+repeat_times = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="Sky"]
+texture = ExtResource("1_272ld")
+centered = false
+
+[node name="BackMountains" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.2, 0.2)
+scroll_offset = Vector2(0, 128)
+repeat_size = Vector2(1152, 0)
+repeat_times = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="BackMountains"]
+position = Vector2(0, 100)
+texture = ExtResource("2_risyr")
+centered = false
+
+[node name="FrontMountains" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.3, 0.3)
+scroll_offset = Vector2(0, 32)
+repeat_size = Vector2(1152, 0)
+repeat_times = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="FrontMountains"]
+position = Vector2(0, 100)
+texture = ExtResource("3_ju84e")
+centered = false
+
+[node name="Hills" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.6, 0.6)
+scroll_offset = Vector2(0, 32)
+repeat_size = Vector2(1152, 0)
+repeat_times = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="Hills"]
+position = Vector2(0, 100)
+texture = ExtResource("4_64pqy")
+centered = false

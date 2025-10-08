@@ -1,0 +1,37 @@
+[gd_resource type="Theme" load_steps=8 format=3 uid="uid://cghoexrjpxrh2"]
+
+[ext_resource type="Texture2D" uid="uid://cu44fnc1aopky" path="res://Assets/Sprites/dialog/close.png" id="2_37kwd"]
+[ext_resource type="FontFile" uid="uid://bd0g8jtevnx3c" path="res://Assets/Fonts/BoldPixels.otf" id="2_vhwyg"]
+[ext_resource type="Texture2D" uid="uid://wl33kh1wa10g" path="res://Assets/Sprites/dialog/dialog_box.png" id="4_mf7g0"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bpnmc"]
+texture = ExtResource("2_37kwd")
+modulate_color = Color(0.435192, 0.435192, 0.435192, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vhwyg"]
+texture = ExtResource("2_37kwd")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_37kwd"]
+texture = ExtResource("2_37kwd")
+modulate_color = Color(0.230315, 0.230315, 0.230315, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dy63b"]
+content_margin_left = 20.0
+content_margin_top = 20.0
+content_margin_right = 20.0
+content_margin_bottom = 20.0
+texture = ExtResource("4_mf7g0")
+
+[resource]
+Button/styles/hover = SubResource("StyleBoxTexture_bpnmc")
+Button/styles/normal = SubResource("StyleBoxTexture_vhwyg")
+Button/styles/pressed = SubResource("StyleBoxTexture_37kwd")
+Label/colors/font_color = Color(0, 0, 0, 1)
+Label/colors/font_outline_color = Color(1, 1, 1, 1)
+Label/colors/font_shadow_color = Color(1, 1, 1, 1)
+Label/font_sizes/font_size = 16
+Label/fonts/font = ExtResource("2_vhwyg")
+PanelContainer/styles/panel = SubResource("StyleBoxTexture_dy63b")
+RichTextLabel/colors/default_color = Color(0, 0, 0, 1)
+RichTextLabel/font_sizes/normal_font_size = 32
+RichTextLabel/fonts/normal_font = ExtResource("2_vhwyg")

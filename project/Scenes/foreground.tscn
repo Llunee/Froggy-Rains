@@ -1,0 +1,60 @@
+[gd_scene load_steps=8 format=3 uid="uid://ca86f1rfx84kd"]
+
+[ext_resource type="Script" uid="uid://d01yw64j064w6" path="res://Scripts/foreground.gd" id="1_8xv7p"]
+[ext_resource type="Texture2D" uid="uid://p27h5wsl16hc" path="res://Assets/Sprites/foreground/rain.png" id="2_8xv7p"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cj5ll"]
+atlas = ExtResource("2_8xv7p")
+region = Rect2(0, 0, 1152, 658)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f0750"]
+atlas = ExtResource("2_8xv7p")
+region = Rect2(1152, 0, 1152, 658)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ls55"]
+atlas = ExtResource("2_8xv7p")
+region = Rect2(2304, 0, 1152, 658)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lllli"]
+atlas = ExtResource("2_8xv7p")
+region = Rect2(3456, 0, 1152, 658)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lllli"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cj5ll")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f0750")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3ls55")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lllli")
+}],
+"loop": true,
+"name": &"default",
+"speed": 15.0
+}]
+
+[node name="foreground" type="Parallax2D"]
+scroll_scale = Vector2(1.2, 1.2)
+repeat_size = Vector2(576, 329)
+repeat_times = 9
+script = ExtResource("1_8xv7p")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_lllli")
+frame = 3
+frame_progress = 0.900063
+centered = false
+
+[node name="ColorRect" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(1152, 658)
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0.0470588, 0.196078, 0.32549, 0.137255)
